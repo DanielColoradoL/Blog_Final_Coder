@@ -1,0 +1,99 @@
+{% extends "padre.html" %}
+{% load static %}
+
+{% block encabezado %}
+<!-- Page Header    -->
+    <header class="masthead" style="background-image: url('../static/assets/img/home-bg.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="site-heading">
+                        <h1>Pagina principal del Blog</h1>
+                        <span class="subheading">Aca se puede escribir de lo que quieran!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock  %}
+
+{% block contenido %}
+<!-- Main Content-->
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <!-- Post 1 preview-->
+                <br>
+                <div class="post-preview">
+                    {% if blog_1 %}
+                    <a href="{% url 'post' blog_1.id %}">
+                        <h2 class="post-title">{{ blog_1.titulo }}</h2>
+                        <h4 class="post-subtitle">{{ blog_1.subtitulo }}</h3>
+                    </a>
+                    <p class="post-meta">
+                        Publicado por {{ blog_1.autor }}
+                        en {{ blog_1.fecha}}
+                    </p>
+                    {% else %}
+                    <h2 class="post-title">Aún no hay entradas para mostrar</h2>
+                    {% endif %}
+                </div>
+                <!-- Divider-->
+                <hr class="my-4" />
+                <!-- Post 2 preview-->
+                <div class="post-preview">
+                    {% if blog_2 %}
+                    <a href="{% url 'post' blog_2.id %}">
+                        <h2 class="post-title">{{ blog_2.titulo }}</h2>
+                        <h4 class="post-subtitle">{{ blog_2.subtitulo }}</h3>
+                    </a>
+                    <p class="post-meta">
+                        Publicado por {{ blog_2.autor }}
+                        en {{ blog_2.fecha}}
+                    </p>
+                    {% else %}
+                    <h2 class="post-title">Aún no hay entradas para mostrar</h2>
+                    {% endif %}
+                </div>
+                <!-- Divider-->
+                <hr class="my-4" />
+                <!-- Post 3 preview-->
+                <div class="post-preview">
+                    {% if blog_3 %}
+                    <a href="{% url 'post' blog_3.id %}">
+                        <h2 class="post-title">{{ blog_3.titulo }}</h2>
+                        <h4 class="post-subtitle">{{ blog_3.subtitulo }}</h3>
+                    </a>
+                    <p class="post-meta">
+                        Publicado por {{ blog_3.autor }}
+                        en {{ blog_3.fecha}}
+                    </p>
+                    {% else %}
+                    <h2 class="post-title">Aún no hay entradas para mostrar</h2>
+                    {% endif %}
+                </div>
+                <!-- Divider-->
+                <hr class="my-4" />
+                <!-- Post 4 preview-->
+                <div class="post-preview">
+                    {% if blog_4 %}
+                    <a href="{% url 'post' blog_4.id %}">
+                        <h2 class="post-title">{{ blog_4.titulo }}</h2>
+                        <h4 class="post-subtitle">{{ blog_4.subtitulo }}</h3>
+                    </a>
+                    <p class="post-meta">
+                        Publicado por {{ blog_4.autor }}
+                        en {{ blog_4.fecha}}
+                    </p>
+                    {% else %}
+                    <h2 class="post-title">Aún no hay entradas para mostrar</h2>
+                    {% endif %}
+                </div>
+                <!-- Divider-->
+                <hr class="my-4" />
+                <!-- Pager-->
+                <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="{% url 'all_posts' %}">Ver todas→</a></div>
+            </div>
+        </div>
+    </div>
+{% endblock  %}

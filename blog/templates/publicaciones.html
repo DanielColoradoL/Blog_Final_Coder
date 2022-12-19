@@ -1,0 +1,53 @@
+{% extends "padre.html" %}
+{% load static %}
+
+{% block encabezado %}
+<!-- Page Header -->
+    <header class="masthead" style="background-image: url('../static/assets/img/post-bg.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="post-heading">
+                        <h1 style="color: white">Estas son todas</h1>
+                        <h2 class="subheading" style="color: white">Las entradas del Blog:</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block contenido %}
+<!-- Ejecuta un For la cantidad de veces que blogs tenga objetos; Si no hay objetos, dice que no hay aun objetos creados-->
+    {% if blogs %}  <!-- IF--> 
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    {% for blog in blogs %}     <!-- FOR Post dinamico-->  
+                        <hr class="my-4" /> 
+                        <div class="post-preview"> 
+                            <a href="{% url 'post' blog.id %}">
+                                <h2 class="post-title">{{ blog.titulo }}</h2>
+                                <h4 class="post-subtitle">{{ blog.subtitulo }}</h3>
+                            </a>
+                            <p class="post-meta">
+                                Publicado por {{ blog.autor }}
+                                en {{ blog.fecha}}
+                            </p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% else %}  <!-- ELSE IF--> 
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <br>
+                <H2>No hay entradas en el blog aun. </H2>
+            </div>
+        </div>
+    </div>        
+    {% endif %}
+
+{% endblock %}
