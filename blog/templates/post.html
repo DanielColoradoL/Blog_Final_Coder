@@ -28,8 +28,10 @@
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <p>{{ lectura_publicacion.cuerpo | safe }}</p>
+                    {% if lectura_publicacion.imagen %}
                     <img class="img-fluid" src= "{{ lectura_publicacion.imagen.url }}" alt="..." /></a>
-
+                    {% else %}  
+                    {% endif %}   
                 </div>
             </div>
         </div>
