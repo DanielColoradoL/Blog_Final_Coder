@@ -7,3 +7,9 @@ adicionalmente desarrolle todo el codigo de la aplicacion blog y parte del codig
 
 Cesar  se encargo del desarrollo de la aplicacion mensajeria, y parte de la aplicacion usuarios.
 ##
+
+
+Adicionalmente dejo las credenciales para probar el modo administrador y dos usuarios para interactuar con la web.
+admin - password
+DColorado - A0W7RvC9
+MGomez - 7w-jLxLbrat
