@@ -1,0 +1,50 @@
+{% extends "padre.html" %}
+{% load static %}
+
+{% block encabezado %}
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('../static/assets/img/clyde.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="post-heading">
+                    <h1 style="color: white; text-align: center;"> Mensajes enviados</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
+
+{% block contenido %}
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <hr class="my-4" /> 
+            <div class="post-preview"> 
+                <table >
+                    <tr>
+                        <th style="border: 1px solid #000; width: 25%; padding: 0.3em;">Para:       </th>
+                        <th style="border: 1px solid #000; width: 25%; padding: 0.3em;">Mensajes:   </th>
+                        <th style="border: 1px solid #000; width: 25%; padding: 0.3em;">hora        </th>
+                        <th style="border: 1px solid #000; width: 25%; padding: 0.3em;">leido       </th>
+                    </tr>
+                    {% for indice in mensajes %}
+                    <tr>
+                        <td style="text-align: center; border: 1px solid #000; width: 25%; border-spacing: 0; padding: 0.3em;">{{ indice.recibir }}</td>
+                        <td style="text-align: center; border: 1px solid #000; width: 25%; border-spacing: 0; padding: 0.3em;">{{ indice.mensaje }}</td>
+                        <td style="text-align: center; border: 1px solid #000; width: 25%; border-spacing: 0; padding: 0.3em;">{{ indice.a_quehora }}</td>
+                        <td style="text-align: center; border: 1px solid #000; width: 25%; border-spacing: 0; padding: 0.3em;">{{ indice.leido }}</td>
+                    </tr>   
+                    {% endfor %}
+                </table>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>       
+{% endblock %}
+
+{% block avatar %}
+<img src= "{{ avatar }}" width="50">
+{% endblock %}

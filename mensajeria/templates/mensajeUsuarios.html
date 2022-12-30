@@ -1,0 +1,44 @@
+{% extends "padre.html" %}
+{% load static %}
+
+{% block encabezado %}
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('../static/assets/img/clyde.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="post-heading">
+                    <h1 style="color: white; text-align: center;"> Mensajeria</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
+
+{% block contenido %}
+
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <hr class="my-4" /> 
+            <div class="post-preview"> 
+                <h2 class="post-title">Bienvenidos a mensajeria instantanea</h2>
+                <br>
+                <div>
+                    <a class="btn btn-primary text-uppercase" href="{% url 'mensajeFormulario' %}">Enviar mensaje</a> 
+                    <a class="btn btn-primary text-uppercase" href="{% url 'leerMensaje' %}">Mensajes recibidos</a>
+                    <a class="btn btn-primary text-uppercase" href="{% url 'enviadoMensaje' %}">Mensajes enviados</a>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+    {{ mensaje }}
+    
+{% endblock %}
+
+{% block avatar %}
+<img src= "{{ avatar }}" width="50">
+{% endblock %}
