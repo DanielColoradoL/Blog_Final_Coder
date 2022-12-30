@@ -8,8 +8,8 @@
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <div class="page-heading">
-                        <h1 style="color: white">Sobre nostros</h1>
-                        <span class="subheading" style="color: white">Esto es lo que hacemos.</span>
+                        <h1 style="color: white; text-align: center;">Sobre nostros</h1>
+                        <h5 class="subheading" style="color: white; text-align: center;">Esto es lo que hacemos.</h5>
                     </div>
                 </div>
             </div>
@@ -25,16 +25,27 @@
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <br>
                     <div>
-                        <h3>Hola soy Daniel</h3>
-                        <p>Mi nombre es Daniel, y aun estamos trabajando en esta seccion</p>
+                        <h3>Coder #1 Daniel Colorado Londoño</h3>
+                        <p>Mi nombre es Daniel, soy ingeniero Mecatrónico con experiencia en automatizacion industrial.
+                            Sin embargo, la vida misma me ha enseñado otros caminos. Actualmente vivo en Australia, y no trabajo en nada relacionado.
+                            Descubri ser un apasionado por la programacion, y aqui estamos, cada dia aprendiendo mas de este mundo.
+                        </p>
+                        <img src="../static/assets/img/danielcolorado.jpg" width="700">
                     </div>
                     <br>
                     <div>
-                        <h3>Hola soy Cesar</h3>
-                        <p>Mi nombre es Cesar, y aun estamos trabajando en los usuarios tambien :)</p>
+                        <h3> Coder # 2 Cesar Pacheco Rojas</h3>
+                        <p>Mi nombre es Cesar, soy Estudiante de Ingeniería Mecatrónica en la universidad ECCi,
+                            estudiante de CoderHouse, desarrollador Python, me considero un guerrero de la vida siempre alegre, siempre listos… 
+                        </p>
+                        <img src="../static/assets/img/Cesar.PNG" width="700">
                     </div>
                 </div>
             </div>
         </div>
     </main>
+{% endblock %}
+
+{% block avatar %}
+<img src= "{{ avatar }}" width="50">
 {% endblock %}

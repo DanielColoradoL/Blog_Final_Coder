@@ -133,3 +133,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 #ckeditor upload path
 CKEDITOR_UPLOAD_PATH = "uploads/"
+
+
+LOGIN_URL='/user/login'

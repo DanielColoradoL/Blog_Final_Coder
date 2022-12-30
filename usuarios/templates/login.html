@@ -1,0 +1,47 @@
+{% extends "padre.html" %}
+{% load static %}
+
+{% block encabezado %}
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('../static/assets/img/chicago.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="post-heading">
+                    <h1 style="color: white; text-align: center;">{{ mensaje_login }}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
+
+{% block contenido %}
+<!---->
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <br>
+                <h4>Inicia sesión o</h4> 
+                <a href="{% url 'register'%}">Crea una cuenta</a>
+                <hr class="my-4" /> 
+                <div class="post-preview">
+                    <form action="{% url 'login'%}" method="post"> {% csrf_token %}
+                        <table>
+                            {{ form_login  }}
+                        </table>
+                        <div class="form-group">
+                            <br>
+                            <input type="submit" class="btn btn-primary btn-block" value="Iniciar sesion">
+                            
+                        </div>
+                    </form>
+                    <br>
+                </div>
+        </div>
+    </div>        
+{% endblock %}
+
+{% block avatar %}
+<img src= "{{ avatar }}" width="50">
+{% endblock %}

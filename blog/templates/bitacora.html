@@ -1,0 +1,80 @@
+{% extends "padre.html" %}
+{% load static %}
+
+{% block encabezado %}
+<!-- Page Header -->
+    <header class="masthead" style="background-image: url('../static/assets/img/medellin.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="post-heading">
+                        <h1 style="color: white; text-align: center;">Bienvenido</h1>
+                        <h2 class="subheading" style="color: white; text-align: center;">a tu bitacora</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block contenido %}
+
+<br>
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <h2>Agregar un nuevo blog: </h2>  
+            <a class="btn btn-primary text-uppercase" href="{% url 'add_post' %}">Agregar blog</a>
+        </div>
+    </div>
+</div>
+<br>
+<hr>
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <h2>Blogs existentes :</h2>  
+        </div>
+    </div>
+</div>
+
+<!-- Ejecuta un For la cantidad de veces que blogs tenga objetos; Si no hay objetos, dice que no hay aun objetos creados-->
+    {% if blogs %}  <!-- IF--> 
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    {% for blog in blogs %}     <!-- FOR Post dinamico-->  
+                        <hr class="my-4" /> 
+                        <div class="post-preview"> 
+                            <a href="{% url 'post' blog.id %}">
+                                <h2 class="post-title">{{ blog.titulo }}</h2>
+                                <h4 class="post-subtitle">{{ blog.subtitulo }}</h3>
+                            </a>
+                            <p class="post-meta">
+                                Publicado por {{ blog.autor }}
+                                en {{ blog.fecha}}
+                            </p>
+                            <div>
+                                <a class="btn btn-primary text-uppercase" style="background-color: rgb(229, 236, 98)" href="{% url 'edit_post' blog.id %}">Editar</a> <a class="btn btn-primary text-uppercase" style="background-color:rgb(245, 109, 109)" href="{% url 'delete' blog.id %}">Eliminar</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% else %}  <!-- ELSE IF--> 
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <br>
+                <h4>No has agregado ningun blog aun. </h4>
+            </div>
+        </div>
+    </div>        
+    {% endif %}
+
+{% endblock %}
+
+{% block avatar %}
+<img src= "{{ avatar }}" width="50">
+{% endblock %}

@@ -3,17 +3,17 @@
 
 {% block encabezado %}
 <!-- Page Header    url('./static/assets/img/post-bg.jpg')  -->
-    <header class="masthead" style="background-image: url('../static/assets/img/post-bg.jpg')">
+    <header class="masthead" style="background-image: url('../static/assets/img/melbourne.jpg')">
         <div class="container position-relative px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <div class="post-heading">
-                        <h1>{{ lectura_publicacion.titulo }}</h1>
-                        <h2 class="subheading">{{ lectura_publicacion.subtitulo }}</h2>
-                        <span class="meta">
+                        <h1 style="color: white; text-align: center;">{{ lectura_publicacion.titulo }}</h1>
+                        <h2 style="color: white; text-align: center;" class="subheading">{{ lectura_publicacion.subtitulo }}</h2>
+                        <p class="meta" style="color: white; text-align: center;">
                             Publicado por {{ lectura_publicacion.autor }}
                             en {{ lectura_publicacion.fecha}}
-                        </span>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -36,4 +36,8 @@
             </div>
         </div>
     </article>
+{% endblock %}
+
+{% block avatar %}
+<img src= "{{ avatar }}" width="50">
 {% endblock %}
