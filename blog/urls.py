@@ -10,4 +10,5 @@ urlpatterns = [
     path("editpost/<id>", edit_post, name= "edit_post"),
     path("bitacora", bitacora, name= "bitacora"),
     path("delete/<id>", delete_post, name= "delete"),
+    path("bitacoraadmin", bitacora_admin, name= "bitacora_admin"),
 ]

@@ -77,7 +77,7 @@ def add_post(request):
 def edit_post(request, id):
     user_name = request.user.get_full_name()
     blog_edit = Post.objects.get(id = id)
-    if user_name == blog_edit.autor:        # Este If valida que el usuario que va a editar sea el mismo que publico el blog. Para evitar que los usuarios accedan a los blogs de otros usuarios.
+    if user_name == blog_edit.autor or request.user.is_superuser:        # Este If valida que el usuario que va a editar sea el mismo que publico el blog. Para evitar que los usuarios accedan a los blogs de otros usuarios.
         if request.method == "POST":
             formulario = Form_Post(request.POST, request.FILES)
             if formulario.is_valid():
@@ -111,14 +111,14 @@ def edit_post(request, id):
 def delete_post(request, id):
     user_name = request.user.get_full_name()
     blog_delete = Post.objects.get(id=id)
-    if user_name == blog_delete.autor:      # Este If valida que el usuario que va a eliminar sea el mismo que publico el blog. Para evitar que los usuarios accedan a los blogs de otros usuarios.
+    if user_name == blog_delete.autor or request.user.is_superuser:      # Este If valida que el usuario que va a eliminar sea el mismo que publico el blog. Para evitar que los usuarios accedan a los blogs de otros usuarios.
         blog_delete.delete()
         return render(request, "utilidad.html", {"mensaje_utilidad": "El post ha sido eliminado exitosamente!"})
     else:
         return render(request, "utilidad.html", {"mensaje_utilidad": "No tiene autorizacion de eliminar esta publicacion!", "avatar": obtenerAvatar(request)})
 
 
-# def user_logeado(request):
-#     username = None
-#     if request.user.is_authenticated():
-#         username = request.user.username
+@ login_required
+def bitacora_admin(request):
+    blogs = Post.objects.all().order_by("-id") # Consulta por id, de mayor a menor (ORDER BY id DESC en SQL)
+    return render(request, "bitacoraadmin.html", {"blogs": blogs, "avatar": obtenerAvatar(request)}) 
